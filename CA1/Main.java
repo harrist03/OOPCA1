@@ -2,24 +2,28 @@ package CA1;
 // CA1
 import java.io. * ;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        String fileName = "titanic-data-100.csv"; // file should be in the project folder (below pom.xml)
+        String fileName = "CA1/titanic-data-100.csv"; // file should be in the project folder (below pom.xml)
 
         ArrayList<Passenger> passengerList= new ArrayList<>();
 
         loadPassengerDataFromFile( passengerList, fileName);
 
-        displayAllPassengers( passengerList );
+        // displayAllPassengers( passengerList );
 
 
         // Assignment: Implement and test the following methods.
         // See the description of each method in the CA1 Specification PDF file from Moodle
-
-    //    getPassengerNames(passengerList);
+        
+        // Q1, declared an array and a method with passengerList as parameter
+        String[] passengerNames = getPassengerNames(passengerList);
+        // print out the contents of the array
+        System.out.println(Arrays.toString(passengerNames));
 //        getPassengersContainingNames();
 //        getPassengersOlderThan();
 //        countPassengersByGender();
@@ -41,6 +45,16 @@ public class Main {
 //        findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static String[] getPassengerNames(ArrayList<Passenger> passengerList) {
+        // declare the array with the correct amount of size
+        String[] names = new String[passengerList.size()];
+        for (int i = 0; i < passengerList.size(); i++) {
+            // get the passenger object then access the name of passenger
+            names[i] = passengerList.get(i).getName();
+        }
+        return names;
     }
 
     /**
