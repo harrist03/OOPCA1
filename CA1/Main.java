@@ -21,10 +21,8 @@ public class Main {
         // See the description of each method in the CA1 Specification PDF file from
         // Moodle
 
-        // Q1, declared an array and a method with passengerList as parameter
-        String[] passengerNames = getPassengerNames(passengerList);
-        // print out the contents of the array
-        // System.out.println(Arrays.toString(passengerNames));
+        // Q1, print out the contents of the passenger names array
+        // System.out.println(Arrays.toString(getPassengerNames(passengerList)));
 
         // Q2, print out passenger objects containing "Harris"
         // System.out.println(getPassengersContainingNames(passengerList, "Harris"));
@@ -36,8 +34,10 @@ public class Main {
         // System.out.println(countPassengersByGender(passengerList, "male"));
 
         // Q5, print out sum of passenger's fares
-        System.out.println(sumFares(passengerList));
-        // maleSurvivors();
+        // System.out.println(sumFares(passengerList));
+
+        // Q6, print out the contents of male survivors array
+        System.out.println(Arrays.toString(maleSurvivors(passengerList)));
         // ticketOwner();
         // averageAge();
         // getPassengersByTicketClass();
@@ -54,6 +54,18 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static String[] maleSurvivors(ArrayList<Passenger> passengerList) {
+        ArrayList<String> maleSurvivorsList = new ArrayList<>();
+        for (Passenger passenger : passengerList) {
+            if (passenger.getGender().equalsIgnoreCase("male") && passenger.getSurvived() == 1) {
+                maleSurvivorsList.add(passenger.getName());
+            }
+        }
+        String[] maleSurvivors = new String[maleSurvivorsList.size()];
+        
+        return maleSurvivorsList.toArray(maleSurvivors);
     }
 
     public static double sumFares(ArrayList<Passenger> passengerList) {
