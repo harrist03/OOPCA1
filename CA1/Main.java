@@ -27,10 +27,10 @@ public class Main {
         // System.out.println(Arrays.toString(passengerNames));
 
         // Q2, print out passenger objects containing "Harris"
-        System.out.println(getPassengersContainingNames(passengerList, "Harris"));
+        // System.out.println(getPassengersContainingNames(passengerList, "Harris"));
 
-        // Q3, 
-        // getPassengersOlderThan();
+        // Q3, print out passengers over the age of 35 
+        System.out.println(getPassengersOlderThan(passengerList, 35));
         // countPassengersByGender();
         // sumFares();
         // maleSurvivors();
@@ -50,6 +50,16 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> getPassengersOlderThan(ArrayList<Passenger> passengerList, int age) {
+        ArrayList<Passenger> passengersOlderThan = new ArrayList<>();
+        for (Passenger passenger : passengerList) {
+            if (passenger.getAge() > age) {
+                passengersOlderThan.add(passenger);
+            }
+        }
+        return passengersOlderThan;
     }
 
     public static ArrayList<Passenger> getPassengersContainingNames(ArrayList<Passenger> passengerList, String name) {
