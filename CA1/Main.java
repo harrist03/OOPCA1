@@ -30,8 +30,10 @@ public class Main {
         // System.out.println(getPassengersContainingNames(passengerList, "Harris"));
 
         // Q3, print out passengers over the age of 35 
-        System.out.println(getPassengersOlderThan(passengerList, 35));
-        // countPassengersByGender();
+        // System.out.println(getPassengersOlderThan(passengerList, 35));
+
+        // Q4, print out passengers that are male
+        System.out.println(countPassengersByGender(passengerList, "male"));
         // sumFares();
         // maleSurvivors();
         // ticketOwner();
@@ -50,6 +52,16 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> countPassengersByGender(ArrayList<Passenger> passengerList, String gender) {
+        ArrayList<Passenger> passengersBasedOnGender = new ArrayList<>();
+        for (Passenger passenger : passengerList) {
+            if (passenger.getGender().equalsIgnoreCase(gender)) {
+                passengersBasedOnGender.add(passenger);
+            }
+        }
+        return passengersBasedOnGender;
     }
 
     public static ArrayList<Passenger> getPassengersOlderThan(ArrayList<Passenger> passengerList, int age) {
