@@ -4,6 +4,7 @@ package CA1;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -46,8 +47,10 @@ public class Main {
         // System.out.println(averageAge(passengerList));
 
         // Q9, print out the passengers that are in First Class
-        System.out.println(getPassengersByTicketClass(passengerList, PassengerClass.FIRST));
-        // sortPassengersByPassengerId()
+        // System.out.println(getPassengersByTicketClass(passengerList, PassengerClass.FIRST));
+
+        // Q10, print out passengers sorted in passenger ID
+        System.out.println(sortPassengersByPassengerId(passengerList));
         // sortPassengersByName();
         // sortPassengersByAgeThenName();
         // sortPassengersByGenderThenPassengerNumber()
@@ -60,6 +63,11 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByPassengerId(ArrayList<Passenger> passengerList) {
+        Collections.sort(passengerList);
+        return passengerList;
     }
 
     public static ArrayList<Passenger> getPassengersByTicketClass(ArrayList<Passenger> passengerList, PassengerClass passengerClass) {

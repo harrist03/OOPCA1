@@ -1,33 +1,34 @@
 package CA1;
+
 //ca1
-public class Passenger {
-    private String passengerId;    // passenger number
-    private int survived;           // 0=false, 1=true
-    private PassengerClass passengerClass;  // passenger class, 1=1st, 2=2nd or 3rd class
+public class Passenger implements Comparable<Passenger> {
+    private String passengerId; // passenger number
+    private int survived; // 0=false, 1=true
+    private PassengerClass passengerClass; // passenger class, 1=1st, 2=2nd or 3rd class
     private String name;
     private String gender;
     private int age;
-    private int siblingsAndSpouses ;    // number of
-    private int parentsAndChildren;     // number of
+    private int siblingsAndSpouses; // number of
+    private int parentsAndChildren; // number of
     private String ticketNumber;
-    private double fare;                // cost of ticket
-    private String cabin;           // cabin, list of cabins or NoCabin
-    private String embarkedAt;      // port where passenger boarded ship
+    private double fare; // cost of ticket
+    private String cabin; // cabin, list of cabins or NoCabin
+    private String embarkedAt; // port where passenger boarded ship
 
     public Passenger(String passengerId, int survived, int passengerClassAsNumber, String name,
-                     String gender, int age, int siblingsAndSpouses, int parentsAndChildren,
-                     String ticketNumber, double fare, String cabin, String embarkedAt) {
+            String gender, int age, int siblingsAndSpouses, int parentsAndChildren,
+            String ticketNumber, double fare, String cabin, String embarkedAt) {
         this.passengerId = passengerId;
         this.survived = survived;
 
-        if(passengerClassAsNumber==1)
-            passengerClass=PassengerClass.FIRST;
-        else if(passengerClassAsNumber==2)
-            passengerClass=PassengerClass.SECOND;
-        else if(passengerClassAsNumber==3)
-            passengerClass=PassengerClass.THIRD;
-        else if(passengerClassAsNumber==4)
-            passengerClass=PassengerClass.UNKNOWN;
+        if (passengerClassAsNumber == 1)
+            passengerClass = PassengerClass.FIRST;
+        else if (passengerClassAsNumber == 2)
+            passengerClass = PassengerClass.SECOND;
+        else if (passengerClassAsNumber == 3)
+            passengerClass = PassengerClass.THIRD;
+        else if (passengerClassAsNumber == 4)
+            passengerClass = PassengerClass.UNKNOWN;
 
         this.name = name;
         this.gender = gender;
@@ -39,7 +40,6 @@ public class Passenger {
         this.cabin = cabin;
         this.embarkedAt = embarkedAt;
     }
-
 
     @Override
     public String toString() {
@@ -153,5 +153,10 @@ public class Passenger {
 
     public void setEmbarkedAt(String embarkedAt) {
         this.embarkedAt = embarkedAt;
+    }
+
+    @Override
+    public int compareTo(Passenger passenger) {
+        return Integer.compare(Integer.parseInt(this.passengerId), Integer.parseInt(passenger.passengerId));
     }
 }
