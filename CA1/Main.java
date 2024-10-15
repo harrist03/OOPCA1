@@ -37,8 +37,10 @@ public class Main {
         // System.out.println(sumFares(passengerList));
 
         // Q6, print out the contents of male survivors array
-        System.out.println(Arrays.toString(maleSurvivors(passengerList)));
-        // ticketOwner();
+        // System.out.println(Arrays.toString(maleSurvivors(passengerList)));
+
+        // Q7, print out the passenger object that has the ticket "A/5 21171"
+        System.out.println(ticketOwner(passengerList, "A/5 21171"));
         // averageAge();
         // getPassengersByTicketClass();
         // sortPassengersByPassengerId()
@@ -54,6 +56,15 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static Passenger ticketOwner(ArrayList<Passenger> passengerList, String tickerNumber) {
+        for (Passenger passenger : passengerList) {
+            if (passenger.getTicketNumber().equals(tickerNumber)) {
+                return passenger;
+            }
+        }
+        return null;
     }
 
     public static String[] maleSurvivors(ArrayList<Passenger> passengerList) {
