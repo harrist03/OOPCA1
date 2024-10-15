@@ -43,8 +43,10 @@ public class Main {
         // System.out.println(ticketOwner(passengerList, "A/5 21171"));
 
         // Q8, print out the average age of passengers
-        System.out.println(averageAge(passengerList));
-        // getPassengersByTicketClass();
+        // System.out.println(averageAge(passengerList));
+
+        // Q9, print out the passengers that are in First Class
+        System.out.println(getPassengersByTicketClass(passengerList, PassengerClass.FIRST));
         // sortPassengersByPassengerId()
         // sortPassengersByName();
         // sortPassengersByAgeThenName();
@@ -58,6 +60,16 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> getPassengersByTicketClass(ArrayList<Passenger> passengerList, PassengerClass passengerClass) {
+        ArrayList<Passenger> filteredPassengers = new ArrayList<>();
+        for (Passenger passenger : passengerList) {
+            if (passenger.getPassengerClass() == passengerClass) {
+                filteredPassengers.add(passenger);
+            }
+        }
+        return filteredPassengers;
     }
 
     public static double averageAge(ArrayList<Passenger> passengerList) {
