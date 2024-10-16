@@ -47,7 +47,7 @@ public class Main {
         // System.out.println(averageAge(passengerList));
 
         // Q9, print out the passengers that are in First Class
-        // System.out.println(getPassengersByTicketClass(passengerList,
+        // System.out.println(getPassengersByTicketClass(passengerList,s
         // PassengerClass.FIRST));
 
         // Q10, print out passengers sorted in passenger ID
@@ -56,12 +56,14 @@ public class Main {
         // Q11, print out passengers sorted in passenger's names
         // System.out.println(sortPassengersByName(passengerList));
 
-        // Q12, print out name within age
+        // Q12, print out passenger's age then name
         // System.out.println(sortPassengersByAgeThenName(passengerList));
 
-        // Q13, 
-        System.out.println(sortPassengersByGenderThenPassengerNumber(passengerList));
-        // sortPassengersByFareThenSurvival();
+        // Q13, print out passenger's gender then passenger number
+        // System.out.println(sortPassengersByGenderThenPassengerNumber(passengerList));
+
+        // Q14, 
+        System.out.println(sortPassengersByFareThenSurvival(passengerList));
         // sortPassengersByTicketClass()
         // sortPassengersByAge();
         // sortPassengersByTicketNumberLambda();
@@ -70,6 +72,11 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByFareThenSurvival(ArrayList<Passenger> passengerList) {
+        Collections.sort(passengerList, new FareThenSurvivalComparator());
+        return passengerList;
     }
 
     public static ArrayList<Passenger> sortPassengersByGenderThenPassengerNumber(ArrayList<Passenger> passengerList) {
