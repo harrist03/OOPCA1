@@ -1,5 +1,5 @@
 package CA1;
-
+import java.util.Comparator;
 //ca1
 public class Passenger implements Comparable<Passenger> {
     private String passengerId; // passenger number
@@ -159,4 +159,11 @@ public class Passenger implements Comparable<Passenger> {
     public int compareTo(Passenger passenger) {
         return Integer.compare(Integer.parseInt(this.passengerId), Integer.parseInt(passenger.passengerId));
     }
+
+    public static final Comparator<Passenger> TicketNumberComparator = new Comparator<Passenger>() {
+        @Override
+        public int compare(Passenger p1, Passenger p2) {
+            return p1.getTicketNumber().compareTo(p2.getTicketNumber());
+        }
+    };
 }

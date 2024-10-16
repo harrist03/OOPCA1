@@ -73,12 +73,19 @@ public class Main {
         // System.out.println(sortPassengersByAge(passengerList));
 
         // Q17, print out passengers sorted by ticket number using lambda function
-        System.out.println(sortPassengersByTicketNumberLambda(passengerList));
-        // sortPassengersByTicketNumberStatic();
+        // System.out.println(sortPassengersByTicketNumberLambda(passengerList));
+
+        // Q18, print out passengers sorted by ticket number using a static comparator
+        System.out.println(sortPassengersByTicketNumberStatic(passengerList));
         // findPassengerByTicketNumber();
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByTicketNumberStatic(ArrayList<Passenger> passengerList) {
+        Collections.sort(passengerList, Passenger.TicketNumberComparator);
+        return passengerList;
     }
 
     public static ArrayList<Passenger> sortPassengersByTicketNumberLambda(ArrayList<Passenger> passengerList) {
