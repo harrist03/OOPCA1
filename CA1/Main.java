@@ -76,11 +76,32 @@ public class Main {
         // System.out.println(sortPassengersByTicketNumberLambda(passengerList));
 
         // Q18, print out passengers sorted by ticket number using a static comparator
-        System.out.println(sortPassengersByTicketNumberStatic(passengerList));
-        // findPassengerByTicketNumber();
+        // System.out.println(sortPassengersByTicketNumberStatic(passengerList));
+
+        // Q19, create a dummy passenger and set the ticket number to be found
+        Passenger searchPassenger = new Passenger();
+        searchPassenger.setTicketNumber("PC 17599");
+        Passenger foundPassenger = findPassengerByTicketNumber(passengerList, searchPassenger);
+        if (foundPassenger != null) {
+            System.out.println("Passenger found, " + foundPassenger.getTicketNumber());
+        } else {
+            System.out.println("Passenger not found.");
+        }
+        
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static Passenger findPassengerByTicketNumber(ArrayList<Passenger> passengerList, Passenger searchPassenger) {
+        // sort the passenger's ticket number in order to perform binary search
+        sortPassengersByTicketNumberStatic(passengerList); 
+        int index = Collections.binarySearch(passengerList, searchPassenger, Passenger.TicketNumberComparator);
+        if (index >= 0) {
+            return passengerList.get(index);
+        } else {
+            return null;
+        }
     }
 
     public static ArrayList<Passenger> sortPassengersByTicketNumberStatic(ArrayList<Passenger> passengerList) {

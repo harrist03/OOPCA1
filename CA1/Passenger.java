@@ -41,6 +41,10 @@ public class Passenger implements Comparable<Passenger> {
         this.embarkedAt = embarkedAt;
     }
 
+    public Passenger() {
+        
+    }
+
     @Override
     public String toString() {
         return "Passenger{" +
