@@ -56,15 +56,17 @@ public class Main {
         // Q11, print out passengers sorted in passenger's names
         // System.out.println(sortPassengersByName(passengerList));
 
-        // Q12, print out passenger's age then name
+        // Q12, print out sotrted passenger's age then name
         // System.out.println(sortPassengersByAgeThenName(passengerList));
 
-        // Q13, print out passenger's gender then passenger number
+        // Q13, print out sorted passenger's gender then passenger number
         // System.out.println(sortPassengersByGenderThenPassengerNumber(passengerList));
 
-        // Q14, 
-        System.out.println(sortPassengersByFareThenSurvival(passengerList));
-        // sortPassengersByTicketClass()
+        // Q14, print out sorted passenger's fare then survival
+        // System.out.println(sortPassengersByFareThenSurvival(passengerList));
+
+        // Q15, print out passenger's based on their ticket class
+        System.out.println(sortPassengersByTicketClass(passengerList));
         // sortPassengersByAge();
         // sortPassengersByTicketNumberLambda();
         // sortPassengersByTicketNumberStatic();
@@ -72,6 +74,11 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByTicketClass(ArrayList<Passenger> passengerList) {
+        Collections.sort(passengerList, new TicketClassComparator());
+        return passengerList;
     }
 
     public static ArrayList<Passenger> sortPassengersByFareThenSurvival(ArrayList<Passenger> passengerList) {
