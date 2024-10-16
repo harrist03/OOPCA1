@@ -28,7 +28,7 @@ public class Main {
         // Q2, print out passenger objects containing "Harris"
         // System.out.println(getPassengersContainingNames(passengerList, "Harris"));
 
-        // Q3, print out passengers over the age of 35 
+        // Q3, print out passengers over the age of 35
         // System.out.println(getPassengersOlderThan(passengerList, 35));
 
         // Q4, print out passengers that are male
@@ -47,11 +47,14 @@ public class Main {
         // System.out.println(averageAge(passengerList));
 
         // Q9, print out the passengers that are in First Class
-        // System.out.println(getPassengersByTicketClass(passengerList, PassengerClass.FIRST));
+        // System.out.println(getPassengersByTicketClass(passengerList,
+        // PassengerClass.FIRST));
 
         // Q10, print out passengers sorted in passenger ID
-        System.out.println(sortPassengersByPassengerId(passengerList));
-        // sortPassengersByName();
+        // System.out.println(sortPassengersByPassengerId(passengerList));
+
+        // Q11, print out passengers sorted in passenger's names
+        System.out.println(sortPassengersByName(passengerList));
         // sortPassengersByAgeThenName();
         // sortPassengersByGenderThenPassengerNumber()
         // sortPassengersByFareThenSurvival();
@@ -65,12 +68,21 @@ public class Main {
         System.out.println("Finished, Goodbye!");
     }
 
-    public static ArrayList<Passenger> sortPassengersByPassengerId(ArrayList<Passenger> passengerList) {
-        Collections.sort(passengerList);
-        return passengerList;
+    public static ArrayList<Passenger> sortPassengersByName(ArrayList<Passenger> passengerList) {
+        ArrayList<Passenger> passengersSortedByName = new ArrayList<>(passengerList);
+        // lambda expression
+        passengersSortedByName.sort((p1, p2) -> p1.getName().compareTo(p2.getName()));
+        return passengersSortedByName;
     }
 
-    public static ArrayList<Passenger> getPassengersByTicketClass(ArrayList<Passenger> passengerList, PassengerClass passengerClass) {
+    public static ArrayList<Passenger> sortPassengersByPassengerId(ArrayList<Passenger> passengerList) {
+        ArrayList<Passenger> passengersSortedByID = new ArrayList<>(passengerList);
+        Collections.sort(passengersSortedByID);
+        return passengersSortedByID;
+    }
+
+    public static ArrayList<Passenger> getPassengersByTicketClass(ArrayList<Passenger> passengerList,
+            PassengerClass passengerClass) {
         ArrayList<Passenger> filteredPassengers = new ArrayList<>();
         for (Passenger passenger : passengerList) {
             if (passenger.getPassengerClass() == passengerClass) {
@@ -105,7 +117,7 @@ public class Main {
             }
         }
         String[] maleSurvivors = new String[maleSurvivorsList.size()];
-        
+
         return maleSurvivorsList.toArray(maleSurvivors);
     }
 
