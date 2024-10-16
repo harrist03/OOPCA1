@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -69,7 +70,7 @@ public class Main {
         // System.out.println(sortPassengersByTicketClass(passengerList));
 
         // Q16, 
-        sortPassengersByAge(passengerList);
+        System.out.println(sortPassengersByAge(passengerList));
         // sortPassengersByTicketNumberLambda();
         // sortPassengersByTicketNumberStatic();
         // findPassengerByTicketNumber();
@@ -79,7 +80,7 @@ public class Main {
     }
 
     public static ArrayList<Passenger> sortPassengersByAge(ArrayList<Passenger> passengerList) {
-        passengerList.sort(new Comparator<Passenger>() {
+        Collections.sort(passengerList, new Comparator<Passenger>() {
             @Override
             public int compare(Passenger p1, Passenger p2) {
                 return Integer.compare(p1.getAge(), p2.getAge());
