@@ -57,8 +57,10 @@ public class Main {
         // System.out.println(sortPassengersByName(passengerList));
 
         // Q12, print out name within age
-        System.out.println(sortPassengersByAgeThenName(passengerList));
-        // sortPassengersByGenderThenPassengerNumber()
+        // System.out.println(sortPassengersByAgeThenName(passengerList));
+
+        // Q13, 
+        System.out.println(sortPassengersByGenderThenPassengerNumber(passengerList));
         // sortPassengersByFareThenSurvival();
         // sortPassengersByTicketClass()
         // sortPassengersByAge();
@@ -68,6 +70,11 @@ public class Main {
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByGenderThenPassengerNumber(ArrayList<Passenger> passengerList) {
+        Collections.sort(passengerList, new GenderThenPassengerNumberComparator());
+        return passengerList;
     }
 
     public static ArrayList<Passenger> sortPassengersByAgeThenName(ArrayList<Passenger> passengerList) {
