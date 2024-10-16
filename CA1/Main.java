@@ -69,14 +69,21 @@ public class Main {
         // Q15, print out passenger's based on their ticket class
         // System.out.println(sortPassengersByTicketClass(passengerList));
 
-        // Q16, 
-        System.out.println(sortPassengersByAge(passengerList));
-        // sortPassengersByTicketNumberLambda();
+        // Q16, print out passengers sorted by age using anonymous inner class
+        // System.out.println(sortPassengersByAge(passengerList));
+
+        // Q17, print out passengers sorted by ticket number using lambda function
+        System.out.println(sortPassengersByTicketNumberLambda(passengerList));
         // sortPassengersByTicketNumberStatic();
         // findPassengerByTicketNumber();
         // findPassengerByPassengerId();
 
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static ArrayList<Passenger> sortPassengersByTicketNumberLambda(ArrayList<Passenger> passengerList) {
+        passengerList.sort((p1, p2) -> p1.getTicketNumber().compareTo(p2.getTicketNumber()));
+        return passengerList;
     }
 
     public static ArrayList<Passenger> sortPassengersByAge(ArrayList<Passenger> passengerList) {
