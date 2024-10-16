@@ -79,23 +79,43 @@ public class Main {
         // System.out.println(sortPassengersByTicketNumberStatic(passengerList));
 
         // Q19, create a dummy passenger and set the ticket number to be found
-        Passenger searchPassenger = new Passenger();
-        searchPassenger.setTicketNumber("PC 17599");
-        Passenger foundPassenger = findPassengerByTicketNumber(passengerList, searchPassenger);
-        if (foundPassenger != null) {
-            System.out.println("Passenger found, " + foundPassenger.getTicketNumber());
-        } else {
-            System.out.println("Passenger not found.");
-        }
-        
-        // findPassengerByPassengerId();
+        // Passenger searchPassenger = new Passenger();
+        // searchPassenger.setTicketNumber("PC 17599");
+        // Passenger foundPassenger = findPassengerByTicketNumber(passengerList,
+        // searchPassenger);
+        // if (foundPassenger != null) {
+        // System.out.println("Passenger found, " + foundPassenger.getTicketNumber());
+        // } else {
+        // System.out.println("Passenger not found.");
+        // }
 
+        // Q20, create a dummy passenger and set the passenger ID to be found
+        Passenger searchPassengerID = new Passenger();
+        searchPassengerID.setPassengerId("20");
+        Passenger foundPassengerID = findPassengerByPassengerId(passengerList, searchPassengerID);
+        if (foundPassengerID != null) {
+        System.out.println("Passenger found, " + foundPassengerID.getPassengerId());
+        } else {
+        System.out.println("Passenger not found.");
+        }
         System.out.println("Finished, Goodbye!");
+    }
+
+    public static Passenger findPassengerByPassengerId(ArrayList<Passenger> passengerList,
+            Passenger searchPassengerID) {
+        // sort the passenger's ID in order to perform binary search
+        Collections.sort(passengerList);
+        int index = Collections.binarySearch(passengerList, searchPassengerID);
+        if (index >= 0) {
+            return passengerList.get(index);
+        } else {
+            return null;
+        }
     }
 
     public static Passenger findPassengerByTicketNumber(ArrayList<Passenger> passengerList, Passenger searchPassenger) {
         // sort the passenger's ticket number in order to perform binary search
-        sortPassengersByTicketNumberStatic(passengerList); 
+        sortPassengersByTicketNumberStatic(passengerList);
         int index = Collections.binarySearch(passengerList, searchPassenger, Passenger.TicketNumberComparator);
         if (index >= 0) {
             return passengerList.get(index);
