@@ -1,6 +1,6 @@
 package CA1;
 
-// CA1
+// CA1 by Harris Teh Kai Ze
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,14 +90,14 @@ public class Main {
         // }
 
         // Q20, create a dummy passenger and set the passenger ID to be found
-        Passenger searchPassengerID = new Passenger();
-        searchPassengerID.setPassengerId("20");
-        Passenger foundPassengerID = findPassengerByPassengerId(passengerList, searchPassengerID);
-        if (foundPassengerID != null) {
-        System.out.println("Passenger found, " + foundPassengerID.getPassengerId());
-        } else {
-        System.out.println("Passenger not found.");
-        }
+        // Passenger searchPassengerID = new Passenger();
+        // searchPassengerID.setPassengerId("20");
+        // Passenger foundPassengerID = findPassengerByPassengerId(passengerList, searchPassengerID);
+        // if (foundPassengerID != null) {
+        // System.out.println("Passenger found, " + foundPassengerID.getPassengerId());
+        // } else {
+        // System.out.println("Passenger not found.");
+        // }
         System.out.println("Finished, Goodbye!");
     }
 
@@ -105,6 +105,7 @@ public class Main {
             Passenger searchPassengerID) {
         // sort the passenger's ID in order to perform binary search
         Collections.sort(passengerList);
+        // using compareTo method
         int index = Collections.binarySearch(passengerList, searchPassengerID);
         if (index >= 0) {
             return passengerList.get(index);
@@ -116,6 +117,7 @@ public class Main {
     public static Passenger findPassengerByTicketNumber(ArrayList<Passenger> passengerList, Passenger searchPassenger) {
         // sort the passenger's ticket number in order to perform binary search
         sortPassengersByTicketNumberStatic(passengerList);
+        // using custom comparator
         int index = Collections.binarySearch(passengerList, searchPassenger, Passenger.TicketNumberComparator);
         if (index >= 0) {
             return passengerList.get(index);
